@@ -195,13 +195,12 @@ while(rs.next()) {
         Menu_Lista_Asis = new javax.swing.JMenuItem();
         Menu_Gpo_Materia = new javax.swing.JMenuItem();
         Menu_Gpo_Carr = new javax.swing.JMenuItem();
+        Menu_Gpos_Prof = new javax.swing.JMenuItem();
         menu_salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(690, 480));
         setMinimumSize(new java.awt.Dimension(690, 480));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(690, 480));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -322,7 +321,7 @@ while(rs.next()) {
 
         Menu_Asignar.setText("Asignar");
 
-        Menu_Lista_Asis.setText("Profesor y Grupo a Listas de Asistencia");
+        Menu_Lista_Asis.setText("Listas de Asistencia");
         Menu_Lista_Asis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Menu_Lista_AsisActionPerformed(evt);
@@ -330,7 +329,7 @@ while(rs.next()) {
         });
         Menu_Asignar.add(Menu_Lista_Asis);
 
-        Menu_Gpo_Materia.setText("Grupo a Materia");
+        Menu_Gpo_Materia.setText("Materias");
         Menu_Gpo_Materia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Menu_Gpo_MateriaActionPerformed(evt);
@@ -338,13 +337,21 @@ while(rs.next()) {
         });
         Menu_Asignar.add(Menu_Gpo_Materia);
 
-        Menu_Gpo_Carr.setText("Carrera a Grupo");
+        Menu_Gpo_Carr.setText("Carreras");
         Menu_Gpo_Carr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Menu_Gpo_CarrActionPerformed(evt);
             }
         });
         Menu_Asignar.add(Menu_Gpo_Carr);
+
+        Menu_Gpos_Prof.setText("Grupos");
+        Menu_Gpos_Prof.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Menu_Gpos_ProfActionPerformed(evt);
+            }
+        });
+        Menu_Asignar.add(Menu_Gpos_Prof);
 
         Menu_Asis.add(Menu_Asignar);
 
@@ -500,6 +507,14 @@ else {
         this.dispose();
     }//GEN-LAST:event_btn_con_escActionPerformed
 
+    private void Menu_Gpos_ProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Menu_Gpos_ProfActionPerformed
+        Asignar_Grupos frame =  new Asignar_Grupos();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Menu_Gpos_ProfActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -508,6 +523,7 @@ else {
     private javax.swing.JMenu Menu_Asis;
     private javax.swing.JMenuItem Menu_Gpo_Carr;
     private javax.swing.JMenuItem Menu_Gpo_Materia;
+    private javax.swing.JMenuItem Menu_Gpos_Prof;
     private javax.swing.JMenuItem Menu_Lista_Asis;
     private javax.swing.JButton btn_asis;
     private javax.swing.JButton btn_con_esc;

@@ -63,6 +63,17 @@ public class E_LISTA_ASISTENCIA {
     this.setDS_LISTA(pDS_LISTA);
 
             }
+   
+    public E_LISTA_ASISTENCIA( int pID_LISTA_ASISTENCIA, int pID_PROFESOR, int pID_GRUPO,
+    String pNB_PROFESOR, String pNB_GRUPO)
+             {
+    this.setID_LISTA_ASISTENCIA(pID_LISTA_ASISTENCIA);
+    this.setID_PROFESOR(pID_PROFESOR);
+    this.setID_GRUPO(pID_GRUPO);
+    this.setNB_PROFESOR(pNB_PROFESOR);
+    this.setNB_GRUPO(pNB_GRUPO);
+
+            }
     /**
      * @return the ID_LISTA_ASISTENCIA
      */
