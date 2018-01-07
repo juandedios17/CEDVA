@@ -158,32 +158,31 @@ while(rs.next()) {
                 PreparedStatement st = null ;
 //
         try {
-//            st = mysqlConnect.connect().createStatement();
+            
 
           String sql = "";
           
           if(pNbAlumno.equals(""))
           {
+              
            sql = "SELECT A.ID_ALUMNO, A.CL_ALUMNO, A.NB_ALUMNO, A.NB_PATERNO, A.NB_MATERNO, A.CL_DIRECCION, \n" +
                 "A.FE_TRAMITE, A.CL_TELEFONO_CASA, \n" +
                 "A.CL_TELEFONO_CEL, A.CL_EMAIL, A.CL_CARRERA, A.NO_EDAD, A.FE_NACIMIENTO, A.ID_PROSPECTO, \n" +
                 "A.ID_GRUPO, B.CL_PROSPECTO, C.NB_GRUPO FROM c_alumno \n" +
                 "A INNER JOIN c_prospecto B ON A.ID_PROSPECTO = B.ID_PROSPECTO \n" +
                 "INNER JOIN c_grupo C ON A.ID_GRUPO = C.ID_GRUPO";
-             st =mysqlConnect.connect().prepareStatement(sql);
-
+                     st =mysqlConnect.connect().prepareStatement(sql);
           }
           else 
           {
-              sql = ("SELECT A.ID_ALUMNO, A.CL_ALUMNO, A.NB_ALUMNO, A.NB_PATERNO, A.NB_MATERNO, A.CL_DIRECCION, \n" +
+              sql = "SELECT A.ID_ALUMNO, A.CL_ALUMNO, A.NB_ALUMNO, A.NB_PATERNO, A.NB_MATERNO, A.CL_DIRECCION, \n" +
                 "A.FE_TRAMITE, A.CL_TELEFONO_CASA, \n" +
                 "A.CL_TELEFONO_CEL, A.CL_EMAIL, A.CL_CARRERA, A.NO_EDAD, A.FE_NACIMIENTO, A.ID_PROSPECTO, \n" +
                 "A.ID_GRUPO, B.CL_PROSPECTO, C.NB_GRUPO FROM c_alumno \n" +
                 "A INNER JOIN c_prospecto B ON A.ID_PROSPECTO = B.ID_PROSPECTO \n" +
-                "INNER JOIN c_grupo C ON A.ID_GRUPO = C.ID_GRUPO WHERE A.NB_ALUMNO = ?");
+                "INNER JOIN c_grupo C ON A.ID_GRUPO = C.ID_GRUPO \n" +
+                "where UPPER(NB_ALUMNO) LIKE '%"+pNbAlumno+"%'";
                      st =mysqlConnect.connect().prepareStatement(sql);
-                     st.setString(1, pNbAlumno);
-//                        st.setString(1, java.util.A rrays(pClUser));
           }
 
           
